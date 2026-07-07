@@ -37,6 +37,7 @@ th{background:var(--panel);color:var(--dim);font-weight:600;letter-spacing:1px;f
 .warn{border-left:3px solid var(--coral);padding-left:14px;margin:12px 0;color:#e8c0b6;font-size:14px}
 .ipad-only,.iphone-only{display:none}
 body.dev-ipad .ipad-only{display:block}
+body.dev-ipad img.ipad-only,body.dev-iphone img.iphone-only{display:block}
 body.dev-iphone .iphone-only{display:block}
 body.dev-ipad span.ipad-only,body.dev-ipad td.ipad-only{display:revert}
 body.dev-iphone span.iphone-only,body.dev-iphone td.iphone-only{display:revert}
@@ -45,6 +46,8 @@ details summary{cursor:pointer;padding:11px 16px;font-weight:600;color:var(--ink
 details summary::before{content:"▸ ";color:var(--accent)}
 details[open] summary::before{content:"▾ "}
 details .body{padding:0 16px 14px}
+.shot{width:100%;border-radius:12px;border:1px solid var(--line);margin:10px 0;display:block}
+.shot-cap{color:var(--dim);font-size:12.5px;text-align:center;margin:-4px 0 10px}
 .badge{display:inline-block;background:var(--code);border:1px solid var(--line);color:var(--accent);border-radius:5px;font-size:11px;padding:1px 7px;letter-spacing:1px;vertical-align:2px}
 .hidden{display:none!important}
 footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
@@ -79,7 +82,9 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 
 <section id="overview"><h2>Overview</h2>
 <p><b>Motus XL</b> is a standalone groovebox — an imagined big sibling of the Ableton Move with <b>8 tracks</b>, an <b>8×8 pad grid</b>, a 256×128 OLED, its own drum &amp; synth engines, and full <b>AUv3 plugin hosting</b>. Everything runs on the device: sequencer, sounds, effects, and hardware control-surface support.</p>
+<img class="shot ipad-only" src="img/man-ipad-hw.png" alt="Motus XL iPad panel, hardware theme">
 <div class="card ipad-only"><b>iPad layout</b> — the full fascia: display with 4+4 encoder wings up top, wheel and mode buttons on the left rail, function cluster on the right, 16 step buttons along the bottom.</div>
+<img class="shot iphone-only" src="img/man-phone.png" alt="Motus XL iPhone Move Go layout">
 <div class="card iphone-only"><b>iPhone — the "Move Go" layout</b> (landscape) — the 8×8 grid takes the full height on the left; the right control bay stacks the display, 8 encoders (2×4), the function cluster, the 16 steps as two rows of 8 (bar halves), and nav. Wheel, mode buttons, plugin bay, and transport live in the slim left column. All features are identical to the iPad.</div>
 <p>Two drum tracks and six synth tracks by default. Each track holds <b>8 clips</b> (scenes) of up to <b>16 bars</b>.</p></section>
 
@@ -240,6 +245,8 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <tr><td><kbd>Shift</kbd>+wheel-press</td><td>Next AU parameter bank</td></tr></table></section>
 
 <section id="setup"><h2>Setup, Themes &amp; Power</h2>
+<img class="shot" src="img/man-ipad-vint.png" alt="Vintage theme: walnut rails and charcoal deck">
+<div class="shot-cap">The VINTAGE theme — walnut cheeks, charcoal deck, studio-light knob shadows.</div>
 <p><span class="combo"><kbd>Shift</kbd>+<kbd>Step 2</kbd></span>: <b>THEME</b> (Hardware / Bare / Vintage walnut), <b>COLOR</b> (7 chassis tints), <b>AU HIDDEN</b> (turn to restore hidden plugins). Wheel-press moves rows, turn sets.</p>
 <p>Tilt the device — the panel lighting (knob reflections, screen glare, pad sheen) follows the room light via the accelerometer.</p>
 <p><kbd>⏻</kbd> then wheel-press powers down (screen, LEDs, and any connected control surfaces go dark; input is inert). Press <kbd>⏻</kbd> to boot.</p></section>
