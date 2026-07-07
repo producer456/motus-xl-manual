@@ -95,7 +95,7 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <tr><td><kbd>Back</kbd></td><td>Exit menus; from Set Overview, return to the previous mode.</td></tr>
 <tr><td><kbd>≡ Note</kbd></td><td>Toggle Note ↔ Session mode.</td></tr>
 <tr><td><kbd>Quantize</kbd></td><td>Apply quantize to the selected clip.</td></tr>
-<tr><td>8 Encoders</td><td>Sound macros (internal) or AU parameters (banked). Touch one during playback to override its automation.</td></tr>
+<tr><td>8 Encoders</td><td>Sound macros or AU parameters (banked). On internal tracks: <b>1–5</b> = filter/amp macros, <b>6–8</b> = track volume / groove / tempo. Touch one during playback to override its automation.</td></tr>
 <tr><td>Volume encoder</td><td>Main volume. Context-sensitive: held step = velocity, held track = track volume, held drum pad = sample gain, held Set pad = Set volume.</td></tr>
 <tr><td>8 Track buttons</td><td>Select track (LED = track color). Hold + Volume = track volume. Hold Mute + press = mute.</td></tr>
 <tr><td>Right cluster</td><td><kbd>Capture</kbd> <kbd>Sample</kbd> <kbd>Loop</kbd> <kbd>Mute</kbd> <kbd>Delete</kbd> <kbd>Copy</kbd> <kbd>Undo</kbd> <kbd>Shift</kbd></td></tr>
@@ -104,6 +104,7 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <tr><td><kbd>−</kbd><kbd>+</kbd></td><td>Octave (melodic). With steps held: transpose ±1 semitone (hold = ±octave).</td></tr>
 <tr><td><kbd>⏻</kbd></td><td>Power. Press, then press the wheel to confirm off. Press again to wake.</td></tr>
 <tr><td>Plugin bay</td><td>Glass window shows the loaded AU's icon; the button under it opens the plugin's own UI.</td></tr></table>
+<div class="warn"><b>Sample</b> — reserved for a future update; the button is present but sampling is not available yet.</div>
 <div class="tip"><b>Shift lock:</b> double-tap <kbd>Shift</kbd> to lock it on; tap once to unlock.</div></section>
 
 <section id="playing"><h2>Playing</h2>
@@ -179,7 +180,9 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 
 <section id="fx"><h2>Set Effects &amp; Mixing</h2>
 <p>Every Set has a master chain: <b>Dynamics → Saturator</b>. In <b>Session mode</b>, turn the wheel to focus one, then encoders 1–3 edit it (Threshold/Ratio/Makeup · Drive/Color/Mix).</p>
-<p>Mixing: track-hold + Volume = track level; <kbd>Mute</kbd> alone = mute the selected track; <kbd>Mute</kbd> + track button = mute any track; encoder 5 = delay send (internal tracks).</p></section>
+<p>Mixing: track-hold + Volume = track level; <kbd>Mute</kbd> alone = mute the selected track; <kbd>Mute</kbd> + track button = mute any track; encoder 5 = delay send (internal tracks).</p>
+<h3>Sidechain <span class="badge">SHIFT+12</span></h3>
+<p>Per-track ducking. Pick a <b>source</b> track (and, for a drum source, the trigger <b>cell</b>), then set <b>amount</b> and <b>release</b>. Wheel-press moves rows; turn to set. Great for pumping a pad or bass against the kick.</p></section>
 
 <section id="layouts"><h2>Layouts, 16 Pitches &amp; Repeat/Arp</h2>
 <h3>Key &amp; Scale <span class="badge">SHIFT+9</span></h3>
@@ -208,9 +211,9 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <table><tr><th>Control</th><th>Does</th></tr>
 <tr><td>Keys</td><td>Play/record/capture the selected track (drums: chromatic cells from C2)</td></tr>
 <tr><td>16 pads</td><td>3 layers — <b>SESSION</b> (top = tracks, bottom = clip launch), <b>DRUM</b> (16 velocity cells), <b>STEP</b> (live step row)</td></tr>
-<tr><td>Pad-mode button</td><td>Cycle layers · <kbd>Shift</kbd>+it = launch scene</td></tr>
-<tr><td>8 knobs</td><td>The 8 encoders (macros / AU banks) · touching overrides automation</td></tr>
-<tr><td>▲▼ arrows</td><td>AU parameter bank</td></tr>
+<tr><td>Pad-mode button</td><td>Cycle layers · <kbd>Shift</kbd>+it = toggle Session ↔ Note mode</td></tr>
+<tr><td>8 knobs</td><td>Knobs <b>1–7</b> = encoders 1–7 (macros / AU banks); the <b>8th knob</b> is the browse / value wheel · touching overrides automation</td></tr>
+<tr><td>◀▶ arrows</td><td>AU parameter bank · <kbd>Shift</kbd> = loop length ±</td></tr>
 <tr><td>Track −/+</td><td>Select track · <kbd>Shift</kbd> = scene ± · in STEP layer = bar page</td></tr>
 <tr><td>Play / Record</td><td>Transport · <kbd>Shift</kbd>+Record = Capture</td></tr>
 <tr><td>Pitch / Mod strips</td><td>Pass through to AU tracks</td></tr></table></section>
@@ -220,7 +223,7 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <table><tr><th>Control</th><th>Does</th></tr>
 <tr><td>8×8 grid</td><td>Exactly the on-screen pads</td></tr>
 <tr><td>Right column</td><td>Session: launch scenes 1–8 · Note mode: select tracks 1–8</td></tr>
-<tr><td>▲▼◀▶</td><td>Octave / bar paging</td></tr>
+<tr><td>▲▼◀▶</td><td>▲▼ = loop length ± · ◀▶ = previous / next sound (patch)</td></tr>
 <tr><td>Session / Drums / Keys / User</td><td>Note↔Session · Play · Record · Capture</td></tr></table>
 <div class="tip"><b>Dual mode:</b> connect both through a hub — the Launchpad is your grid, the Launchkey covers keys, knobs, transport and screen. Each also works alone.</div>
 <div class="card iphone-only"><b>Dock mode (iPhone):</b> when hardware connects, the Go layout adapts — a Launchpad replaces the on-screen grid with a <b>large display</b>, and a Launchkey hides the on-screen encoders and transport. With both connected the phone becomes the big screen: display, wheel, steps (for the Shift functions), and the edit cluster.</div></section>
@@ -237,6 +240,7 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <tr><td><kbd>Shift</kbd>+<kbd>9</kbd></td><td>Key &amp; Scale (+ In-Key/Chromatic)</td></tr>
 <tr><td><kbd>Shift</kbd>+<kbd>10</kbd></td><td>Full Velocity</td></tr>
 <tr><td><kbd>Shift</kbd>+<kbd>11</kbd></td><td>Repeat / Arp</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>12</kbd></td><td>Sidechain / ducking (per-track: source, drum cell, amount, release)</td></tr>
 <tr><td><kbd>Shift</kbd>+<kbd>14</kbd></td><td>Prepare next empty clip slot</td></tr>
 <tr><td><kbd>Shift</kbd>+<kbd>15</kbd></td><td>Double Loop</td></tr>
 <tr><td><kbd>Shift</kbd>+<kbd>16</kbd></td><td>Quantize clip</td></tr>
@@ -248,11 +252,11 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <section id="setup"><h2>Setup, Themes &amp; Power</h2>
 <img class="shot" src="img/man-ipad-vint.png" alt="Vintage theme: walnut rails and charcoal deck">
 <div class="shot-cap">The VINTAGE theme — walnut cheeks, charcoal deck, studio-light knob shadows.</div>
-<p><span class="combo"><kbd>Shift</kbd>+<kbd>Step 2</kbd></span>: <b>THEME</b> (Hardware / Bare / Vintage walnut), <b>COLOR</b> (7 chassis tints), <b>AU HIDDEN</b> (turn to restore hidden plugins). Wheel-press moves rows, turn sets.</p>
+<p><span class="combo"><kbd>Shift</kbd>+<kbd>Step 2</kbd></span>: <b>THEME</b> (Hardware / Bare / Vintage walnut), <b>COLOR</b> (7 chassis tints), <b>AU HIDDEN</b> (turn to restore hidden plugins), <b>LK SCREEN</b> (Launchkey display orientation). Wheel-press moves rows, turn sets.</p>
 <p>Tilt the device — the panel lighting (knob reflections, screen glare, pad sheen) follows the room light via the accelerometer.</p>
 <p><kbd>⏻</kbd> then wheel-press powers down (screen, LEDs, and any connected control surfaces go dark; input is inert). Press <kbd>⏻</kbd> to boot.</p></section>
 
-<footer>Motus XL · an imagined Move XL · manual v1</footer>
+<footer>Motus XL · an imagined Move XL · manual v1.1</footer>
 </main></div>
 <script>
 function setDev(d){document.body.className='dev-'+d;
