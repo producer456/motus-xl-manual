@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motus XL — Manual</title>
+<style>
+:root{--bg:#0d0d10;--panel:#16161b;--ink:#e8e6e0;--dim:#8a8880;--accent:#8db8ff;--coral:#ff9f8c;--mint:#94f7c0;--line:#26262e;--code:#1d1d24}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,'SF Pro Text',Segoe UI,Roboto,sans-serif}
+a{color:var(--accent);text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:linear-gradient(#141419,#101014);border-bottom:1px solid var(--line);padding:14px 20px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+header h1{font-size:18px;letter-spacing:3px;font-weight:700}
+header h1 span{color:var(--accent)}
+#search{flex:1;min-width:160px;max-width:340px;background:var(--code);border:1px solid var(--line);border-radius:8px;color:var(--ink);padding:8px 12px;font-size:14px}
+.devtoggle{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.devtoggle button{background:none;border:none;color:var(--dim);padding:8px 14px;font-size:13px;cursor:pointer;letter-spacing:1px}
+.devtoggle button.on{background:var(--accent);color:#0d0d10;font-weight:700}
+.wrap{display:flex;max-width:1200px;margin:0 auto}
+nav{width:230px;flex-shrink:0;padding:24px 8px 60px 20px;position:sticky;top:64px;height:calc(100vh - 64px);overflow-y:auto}
+nav a{display:block;color:var(--dim);padding:5px 10px;border-radius:6px;font-size:14px}
+nav a:hover,nav a.here{color:var(--ink);background:var(--panel)}
+nav .grp{color:#55545e;font-size:11px;letter-spacing:2px;margin:16px 0 4px 10px}
+main{flex:1;padding:28px 24px 120px;min-width:0}
+section{margin-bottom:44px;scroll-margin-top:80px}
+h2{font-size:22px;margin-bottom:10px;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:8px}
+h3{font-size:16px;margin:20px 0 6px;color:var(--accent)}
+p,li{color:#c9c7c0;font-size:15px}
+ul{padding-left:22px;margin:8px 0}
+kbd{background:var(--code);border:1px solid #33333d;border-bottom-width:2px;border-radius:5px;padding:1px 7px;font-size:12.5px;font-family:'SF Mono',Menlo,monospace;color:var(--mint);white-space:nowrap}
+.combo{color:var(--dim)}
+table{border-collapse:collapse;width:100%;margin:10px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:var(--panel);color:var(--dim);font-weight:600;letter-spacing:1px;font-size:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
+.tip{border-left:3px solid var(--mint);padding-left:14px;margin:12px 0;color:#b9d8c6;font-size:14px}
+.warn{border-left:3px solid var(--coral);padding-left:14px;margin:12px 0;color:#e8c0b6;font-size:14px}
+.ipad-only,.iphone-only{display:none}
+body.dev-ipad .ipad-only{display:block}
+body.dev-iphone .iphone-only{display:block}
+body.dev-ipad span.ipad-only,body.dev-ipad td.ipad-only{display:revert}
+body.dev-iphone span.iphone-only,body.dev-iphone td.iphone-only{display:revert}
+details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:8px 0;padding:0}
+details summary{cursor:pointer;padding:11px 16px;font-weight:600;color:var(--ink);list-style:none}
+details summary::before{content:"▸ ";color:var(--accent)}
+details[open] summary::before{content:"▾ "}
+details .body{padding:0 16px 14px}
+.badge{display:inline-block;background:var(--code);border:1px solid var(--line);color:var(--accent);border-radius:5px;font-size:11px;padding:1px 7px;letter-spacing:1px;vertical-align:2px}
+.hidden{display:none!important}
+footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
+@media(max-width:820px){nav{display:none}.wrap{display:block}}
+</style>
+</head>
+<body class="dev-ipad">
+<header>
+  <h1>MOTUS <span>XL</span> — MANUAL</h1>
+  <div class="devtoggle">
+    <button id="btn-ipad" class="on" onclick="setDev('ipad')">iPad</button>
+    <button id="btn-iphone" onclick="setDev('iphone')">iPhone&nbsp;·&nbsp;GO</button>
+  </div>
+  <input id="search" placeholder="Search the manual…" oninput="doSearch(this.value)">
+</header>
+<div class="wrap">
+<nav id="nav">
+  <div class="grp">START</div>
+  <a href="#overview">Overview</a><a href="#panel">Panel Tour</a><a href="#playing">Playing</a>
+  <div class="grp">SEQUENCING</div>
+  <a href="#recording">Recording &amp; Capture</a><a href="#steps">Step Editing</a><a href="#loop">Loop Mode</a><a href="#copy">Copy &amp; Paste</a><a href="#grid">Step Grid</a>
+  <div class="grp">SOUND</div>
+  <a href="#sounds">Sounds &amp; AU Plugins</a><a href="#automation">Automation</a><a href="#fx">Set Effects &amp; Mixing</a>
+  <div class="grp">PERFORM</div>
+  <a href="#layouts">Layouts, 16 Pitches, Arp</a><a href="#session">Session Mode</a><a href="#sets">Sets</a>
+  <div class="grp">HARDWARE</div>
+  <a href="#launchkey">Launchkey Mini MK4</a><a href="#launchpad">Launchpad Mini MK3</a>
+  <div class="grp">REFERENCE</div>
+  <a href="#shift">Shift Functions</a><a href="#setup">Setup, Themes &amp; Power</a>
+</nav>
+<main id="main">
+
+<section id="overview"><h2>Overview</h2>
+<p><b>Motus XL</b> is a standalone groovebox — an imagined big sibling of the Ableton Move with <b>8 tracks</b>, an <b>8×8 pad grid</b>, a 256×128 OLED, its own drum &amp; synth engines, and full <b>AUv3 plugin hosting</b>. Everything runs on the device: sequencer, sounds, effects, and hardware control-surface support.</p>
+<div class="card ipad-only"><b>iPad layout</b> — the full fascia: display with 4+4 encoder wings up top, wheel and mode buttons on the left rail, function cluster on the right, 16 step buttons along the bottom.</div>
+<div class="card iphone-only"><b>iPhone — the "Move Go" layout</b> (landscape) — the 8×8 grid takes the full height on the left; the right control bay stacks the display, 8 encoders (2×4), the function cluster, the 16 steps as two rows of 8 (bar halves), and nav. Wheel, mode buttons, plugin bay, and transport live in the slim left column. All features are identical to the iPad.</div>
+<p>Two drum tracks and six synth tracks by default. Each track holds <b>8 clips</b> (scenes) of up to <b>16 bars</b>.</p></section>
+
+<section id="panel"><h2>Panel Tour</h2>
+<table><tr><th>Control</th><th>Function</th></tr>
+<tr><td><kbd>Wheel</kbd></td><td>Browse / set values. <b>Press = confirm</b>. On an AU track, press opens the preset browser; <kbd>Shift</kbd>+press cycles parameter banks.</td></tr>
+<tr><td><kbd>▲</kbd><kbd>▼</kbd> (above wheel)</td><td>Wheel steps without turning.</td></tr>
+<tr><td><kbd>Back</kbd></td><td>Exit menus; from Set Overview, return to the previous mode.</td></tr>
+<tr><td><kbd>≡ Note</kbd></td><td>Toggle Note ↔ Session mode.</td></tr>
+<tr><td><kbd>Quantize</kbd></td><td>Apply quantize to the selected clip.</td></tr>
+<tr><td>8 Encoders</td><td>Sound macros (internal) or AU parameters (banked). Touch one during playback to override its automation.</td></tr>
+<tr><td>Volume encoder</td><td>Main volume. Context-sensitive: held step = velocity, held track = track volume, held drum pad = sample gain, held Set pad = Set volume.</td></tr>
+<tr><td>8 Track buttons</td><td>Select track (LED = track color). Hold + Volume = track volume. Hold Mute + press = mute.</td></tr>
+<tr><td>Right cluster</td><td><kbd>Capture</kbd> <kbd>Sample</kbd> <kbd>Loop</kbd> <kbd>Mute</kbd> <kbd>Delete</kbd> <kbd>Copy</kbd> <kbd>Undo</kbd> <kbd>Shift</kbd></td></tr>
+<tr><td>16 Steps</td><td>The step sequencer row. With <kbd>Shift</kbd>, a function row (see <a href="#shift">reference</a>).</td></tr>
+<tr><td><kbd>◀</kbd><kbd>▶</kbd></td><td>Move between bars (and grid pages). With steps held: nudge notes.</td></tr>
+<tr><td><kbd>−</kbd><kbd>+</kbd></td><td>Octave (melodic). With steps held: transpose ±1 semitone (hold = ±octave).</td></tr>
+<tr><td><kbd>⏻</kbd></td><td>Power. Press, then press the wheel to confirm off. Press again to wake.</td></tr>
+<tr><td>Plugin bay</td><td>Glass window shows the loaded AU's icon; the button under it opens the plugin's own UI.</td></tr></table>
+<div class="tip"><b>Shift lock:</b> double-tap <kbd>Shift</kbd> to lock it on; tap once to unlock.</div></section>
+
+<section id="playing"><h2>Playing</h2>
+<h3>Melodic tracks</h3>
+<p>64 pads. <b>In-Key layout</b> (default): each row is an octave walking the scale; root notes glow in the track color, other scale notes light gray. <b>Chromatic layout</b>: fretboard style — right = +1 semitone, up = a fourth; out-of-scale pads are unlit but still play. Switch layouts in <span class="combo"><kbd>Shift</kbd>+<kbd>Step 9</kbd> Key &amp; Scale</span> (first row).</p>
+<h3>Drum tracks</h3>
+<p>The classic 4×4 cell layout sits on the bottom-left of the grid. Pads with a loaded sample are dimly lit; the selected cell is white; cells with notes glow in the track color. Hold a pad + turn Volume for per-cell sample gain. Hold <kbd>Mute</kbd> + pad mutes a cell.</p>
+<div class="tip">Playing a pad on an empty clip while stopped starts the transport automatically.</div></section>
+
+<section id="recording"><h2>Recording &amp; Capture</h2>
+<h3>Record</h3>
+<ul><li><kbd>Record</kbd> while stopped: one-bar count-in (if on), then recording starts.</li>
+<li><kbd>Record</kbd> while playing: toggles overdub recording.</li>
+<li>Recording into an <b>empty clip keeps extending it</b> (whole bars, up to 16) until you stop.</li>
+<li>Switching tracks stops the recording pass. Notes are pulled 50% toward the grid by default (see <a href="#grid">Workflow</a>).</li></ul>
+<h3>Capture</h3>
+<p>The XL is always listening. Play freely, then press <kbd>Capture</kbd>:</p>
+<ul><li><b>While playing</b> — the last loop of everything you played lands in the playing clips.</li>
+<li><b>While stopped</b> — the last ~16 seconds are analyzed, a <b>tempo is detected</b> from your playing, clips are created, and the transport starts.</li>
+<li><span class="combo"><kbd>Shift</kbd>+<kbd>Capture</kbd></span> clears the buffer.</li></ul></section>
+
+<section id="steps"><h2>Step Editing</h2>
+<p>Steps show the selected track's notes (drum tracks: the selected cell only). White = note, dim color = empty, green = playhead. Press an empty step to add a note; briefly press a lit step to remove it.</p>
+<h3>Hold a step (or several), then…</h3>
+<table><tr><th>Gesture</th><th>Edit</th></tr>
+<tr><td>+ turn <b>Volume</b></td><td>Velocity</td></tr>
+<tr><td>+ turn <b>Wheel</b></td><td>Note length (10% of a step per click)</td></tr>
+<tr><td>+ <kbd>−</kbd>/<kbd>+</kbd></td><td>Transpose ±1 semitone (long-press = ±1 octave)</td></tr>
+<tr><td>+ <kbd>◀</kbd>/<kbd>▶</kbd></td><td>Nudge 10% (with <kbd>Shift</kbd>: 1%; long-press: a full step)</td></tr>
+<tr><td>+ press pads</td><td>Add those pitches to the held steps ("step-then-pad")</td></tr>
+<tr><td>+ turn an encoder</td><td>Write per-step automation for that parameter</td></tr></table>
+<p>Holding a step also lights the pads for the notes it contains. Navigating one bar past the end shows an empty "+" bar — add notes to keep it.</p></section>
+
+<section id="loop"><h2>Loop Mode</h2>
+<p>Press <kbd>Loop</kbd>: steps become bars (max 16). White = selected bar, track color = in the loop, dim = outside.</p>
+<ul><li><b>Press two steps</b> (or hold one, press another) = loop region start/end.</li>
+<li><b>Double-press a step</b> = loop just that bar. Notes before the loop start stay but don't play.</li>
+<li><b>Turn the wheel</b> = loop length in bars.</li>
+<li><b>Hold a bar</b> + wheel/Volume/±/arrows = bulk-edit every note in it; + a pad = fill the bar with that note.</li>
+<li><kbd>Delete</kbd> + bar step = clear the bar's notes. <kbd>Copy</kbd> + bar = copy it (press a destination bar to paste — pasting past the end extends the loop).</li>
+<li><span class="combo"><kbd>Shift</kbd>+<kbd>Step 15</kbd></span> = Double Loop (content included).</li></ul></section>
+
+<section id="copy"><h2>Copy &amp; Paste</h2>
+<table><tr><th>Gesture</th><th>Result</th></tr>
+<tr><td><kbd>Copy</kbd> tap (Note mode)</td><td>Duplicate the clip to the next empty scene</td></tr>
+<tr><td>Hold <kbd>Copy</kbd> + step</td><td>Copy that step's notes (+ automation)</td></tr>
+<tr><td>Hold <kbd>Copy</kbd> + step A + step B</td><td>Copy the range A–B</td></tr>
+<tr><td>Then press any step</td><td>Paste starting there (extends the loop if needed)</td></tr>
+<tr><td>Session: hold <kbd>Copy</kbd> + pad, then a pad</td><td>Copy / paste clips anywhere</td></tr>
+<tr><td>Set Overview: hold <kbd>Copy</kbd> + pad, then a pad</td><td>Copy a Set (overwriting asks for a second press)</td></tr>
+<tr><td><kbd>Copy</kbd> tap with clipboard loaded</td><td>Clear the clipboard</td></tr></table></section>
+
+<section id="grid"><h2>Step Grid &amp; Workflow</h2>
+<p><span class="combo"><kbd>Shift</kbd>+<kbd>Step 3</kbd></span> opens Workflow: <b>Quantize %</b> (default 50), <b>Step Grid</b>, <b>Count-In</b>, <b>Autoload</b>. Wheel-press moves rows; turn to set.</p>
+<p>Step Grid: <b>1/8 · 1/16 · 1/16T · 1/32</b>. Finer grids page within the bar (<kbd>◀</kbd>/<kbd>▶</kbd> show "BAR n PAGE m"). Triplet grids deactivate every 4th button to keep the beat honest. Recording quantize pulls to the active grid.</p></section>
+
+<section id="sounds"><h2>Sounds &amp; AU Plugins</h2>
+<p><b>Wheel press</b> on a track opens the browser: drum kits or internal synth presets, followed by every installed <b>AUv3 instrument</b>. With Autoload on, sounds preview as you scroll. Press the wheel to load.</p>
+<h3>AU tracks</h3>
+<ul><li><b>Encoder 1</b> = track volume; <b>encoders 2–8</b> = a bank of 7 plugin parameters. <span class="combo"><kbd>Shift</kbd>+wheel-press</span> cycles banks; the display maps the knobs.</li>
+<li><b>Wheel press</b> opens the preset browser (live preview; <kbd>Back</kbd> rolls back; "&lt; CHANGE SOUND" returns to instruments).</li>
+<li>The <b>plugin bay button</b> opens the AU's own interface in a sheet.</li></ul>
+<h3>Hiding plugins</h3>
+<p>Don't want a plugin cluttering the browser? Highlight it and press <span class="combo"><kbd>Delete</kbd> + wheel-press</span> — it's hidden (persists). Restore them all from the <b>AU HIDDEN</b> row in Setup.</p></section>
+
+<section id="automation"><h2>Automation</h2>
+<ul><li><b>Record:</b> while recording, turn any encoder — moves are written into the clip and replay in the loop.</li>
+<li><b>Override:</b> during playback, touch/turn an encoder to take over; release to resume the recorded automation.</li>
+<li><b>Deactivate a lane:</b> hold <kbd>Mute</kbd> + tap the encoder (kept but silent; tap again to re-enable).</li>
+<li><b>Delete a lane:</b> hold <kbd>Delete</kbd> + tap the encoder.</li>
+<li><b>Per-step:</b> hold step(s) and turn an encoder to write values at exactly those steps.</li></ul>
+<p>Works for internal macros and AU parameters alike (automated AU params show a <b>*</b> on the knob map). Capture grabs automation too.</p></section>
+
+<section id="fx"><h2>Set Effects &amp; Mixing</h2>
+<p>Every Set has a master chain: <b>Dynamics → Saturator</b>. In <b>Session mode</b>, turn the wheel to focus one, then encoders 1–3 edit it (Threshold/Ratio/Makeup · Drive/Color/Mix).</p>
+<p>Mixing: track-hold + Volume = track level; <kbd>Mute</kbd> alone = mute the selected track; <kbd>Mute</kbd> + track button = mute any track; encoder 5 = delay send (internal tracks).</p></section>
+
+<section id="layouts"><h2>Layouts, 16 Pitches &amp; Repeat/Arp</h2>
+<h3>Key &amp; Scale <span class="badge">SHIFT+9</span></h3>
+<p>Rows: <b>Layout</b> (In-Key / Chromatic), <b>Key</b>, <b>Scale</b>. Wheel-press moves rows. Changing key/scale never moves existing notes. Saved with the Set.</p>
+<h3>16 Pitches <span class="badge">SHIFT+8</span></h3>
+<p>Drum tracks: the right 4×4 plays the <b>selected cell</b> across 16 pitches following the active layout (root = track color). Pitched hits record and sequence like any note. <kbd>−</kbd>/<kbd>+</kbd> shifts the octave.</p>
+<h3>Repeat / Arp <span class="badge">SHIFT+11</span></h3>
+<p>Held pads retrigger at the chosen rate (1/4 … 1/32, incl. triplets). Melodic tracks add styles: <b>Repeat, Arp Up, Arp Down, Arp Random</b>. Repeats record like played notes. Toggle off with the same combo.</p></section>
+
+<section id="session"><h2>Session Mode</h2>
+<p>Press <kbd>≡</kbd>. The grid becomes <b>rows = 8 tracks × columns = 8 scenes</b>.</p>
+<ul><li>Pad = launch that track's clip, quantized to the next bar. Empty slot = stop that track.</li>
+<li><kbd>Shift</kbd> + pad = select without launching.</li>
+<li>Pulsing green = queued · pulsing color = playing · dim pulse = stopping.</li>
+<li>Steps: odd = select track, even = stop track. <kbd>Delete</kbd>/<kbd>Copy</kbd> + pad = clear / copy clips.</li></ul></section>
+
+<section id="sets"><h2>Sets <span class="badge">SHIFT+1</span></h2>
+<p>64 slots on the grid. <b>Press a pad to select</b>, then:</p>
+<ul><li><kbd>Play</kbd> = preview the selected Set.</li><li>Track button / <kbd>Back</kbd> / <kbd>≡</kbd> = open it.</li>
+<li><kbd>Shift</kbd> + pad = Set color menu.</li><li>Hold pad + Volume = Set volume (scales all tracks).</li>
+<li><kbd>Delete</kbd> + pad, then again = delete (two-press confirm).</li></ul>
+<p>Sets auto-save continuously.</p></section>
+
+<section id="launchkey"><h2>Launchkey Mini 37 MK4</h2>
+<p>Plug into the iPad over USB-C — it connects automatically ("MOTUS XL" appears on its screen, which then mirrors the XL's display live).</p>
+<table><tr><th>Control</th><th>Does</th></tr>
+<tr><td>Keys</td><td>Play/record/capture the selected track (drums: chromatic cells from C2)</td></tr>
+<tr><td>16 pads</td><td>3 layers — <b>SESSION</b> (top = tracks, bottom = clip launch), <b>DRUM</b> (16 velocity cells), <b>STEP</b> (live step row)</td></tr>
+<tr><td>Pad-mode button</td><td>Cycle layers · <kbd>Shift</kbd>+it = launch scene</td></tr>
+<tr><td>8 knobs</td><td>The 8 encoders (macros / AU banks) · touching overrides automation</td></tr>
+<tr><td>▲▼ arrows</td><td>AU parameter bank</td></tr>
+<tr><td>Track −/+</td><td>Select track · <kbd>Shift</kbd> = scene ± · in STEP layer = bar page</td></tr>
+<tr><td>Play / Record</td><td>Transport · <kbd>Shift</kbd>+Record = Capture</td></tr>
+<tr><td>Pitch / Mod strips</td><td>Pass through to AU tracks</td></tr></table></section>
+
+<section id="launchpad"><h2>Launchpad Mini MK3</h2>
+<p>A true 1:1 hardware mirror of the 8×8 grid — every pad layout (melodic, drum, session, Set Overview) appears on it automatically in full RGB, with tempo-synced pulsing.</p>
+<table><tr><th>Control</th><th>Does</th></tr>
+<tr><td>8×8 grid</td><td>Exactly the on-screen pads</td></tr>
+<tr><td>Right column</td><td>Session: launch scenes 1–8 · Note mode: select tracks 1–8</td></tr>
+<tr><td>▲▼◀▶</td><td>Octave / bar paging</td></tr>
+<tr><td>Session / Drums / Keys / User</td><td>Note↔Session · Play · Record · Capture</td></tr></table>
+<div class="tip"><b>Dual mode:</b> connect both through a hub — the Launchpad is your grid, the Launchkey covers keys, knobs, transport and screen. Each also works alone.</div></section>
+
+<section id="shift"><h2>Shift Function Reference</h2>
+<table><tr><th>Combo</th><th>Function</th></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>1</kbd></td><td>Set Overview</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>2</kbd></td><td>Setup (theme, chassis color, hidden AUs)</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>3</kbd></td><td>Workflow (quantize %, step grid, count-in, autoload)</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>5</kbd></td><td>Tempo</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>6</kbd></td><td>Metronome</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>7</kbd></td><td>Groove / swing</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>8</kbd></td><td>16 Pitches (drum tracks)</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>9</kbd></td><td>Key &amp; Scale (+ In-Key/Chromatic)</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>10</kbd></td><td>Full Velocity</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>11</kbd></td><td>Repeat / Arp</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>14</kbd></td><td>Prepare next empty clip slot</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>15</kbd></td><td>Double Loop</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>16</kbd></td><td>Quantize clip</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Play</kbd></td><td>Restart from the top</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Undo</kbd></td><td>Redo</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Capture</kbd></td><td>Clear capture buffer</td></tr>
+<tr><td><kbd>Shift</kbd>+wheel-press</td><td>Next AU parameter bank</td></tr></table></section>
+
+<section id="setup"><h2>Setup, Themes &amp; Power</h2>
+<p><span class="combo"><kbd>Shift</kbd>+<kbd>Step 2</kbd></span>: <b>THEME</b> (Hardware / Bare / Vintage walnut), <b>COLOR</b> (7 chassis tints), <b>AU HIDDEN</b> (turn to restore hidden plugins). Wheel-press moves rows, turn sets.</p>
+<p>Tilt the device — the panel lighting (knob reflections, screen glare, pad sheen) follows the room light via the accelerometer.</p>
+<p><kbd>⏻</kbd> then wheel-press powers down (screen, LEDs, and any connected control surfaces go dark; input is inert). Press <kbd>⏻</kbd> to boot.</p></section>
+
+<footer>Motus XL · an imagined Move XL · manual v1</footer>
+</main></div>
+<script>
+function setDev(d){document.body.className='dev-'+d;
+document.getElementById('btn-ipad').classList.toggle('on',d==='ipad');
+document.getElementById('btn-iphone').classList.toggle('on',d==='iphone');}
+function doSearch(q){q=q.trim().toLowerCase();
+document.querySelectorAll('main section').forEach(s=>{
+s.classList.toggle('hidden',q&&!s.textContent.toLowerCase().includes(q));});}
+const secs=[...document.querySelectorAll('main section')];
+const links=[...document.querySelectorAll('nav a')];
+addEventListener('scroll',()=>{let cur=secs[0];
+for(const s of secs){if(s.getBoundingClientRect().top<120)cur=s;}
+links.forEach(l=>l.classList.toggle('here',l.getAttribute('href')==='#'+cur.id));},{passive:true});
+</script>
+</body>
+</html>
