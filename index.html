@@ -93,11 +93,11 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <tr><td><kbd>Wheel</kbd></td><td>Browse / set values. <b>Press = confirm</b>. On an AU track, press opens the preset browser; <kbd>Shift</kbd>+press cycles parameter banks.</td></tr>
 <tr><td><kbd>▲</kbd><kbd>▼</kbd> (above wheel)</td><td>Wheel steps without turning.</td></tr>
 <tr><td><kbd>Back</kbd></td><td>Exit menus; from Set Overview, return to the previous mode.</td></tr>
-<tr><td><kbd>≡ Note</kbd></td><td>Toggle Note ↔ Session mode.</td></tr>
+<tr><td><kbd>≡ Note</kbd></td><td>Toggle Note ↔ Session. <b>Hold</b> to peek at the other mode — release to come back. From Set Overview it opens Session.</td></tr>
 <tr><td><kbd>Quantize</kbd></td><td>Apply quantize to the selected clip.</td></tr>
 <tr><td>8 Encoders</td><td>Sound macros or AU parameters (banked). On internal tracks: <b>1–5</b> = filter/amp macros, <b>6–8</b> = track volume / groove / tempo. Touch one during playback to override its automation.</td></tr>
 <tr><td>Volume encoder</td><td>Main volume. Context-sensitive: held step = velocity, held track = track volume, held drum pad = sample gain, held Set pad = Set volume.</td></tr>
-<tr><td>8 Track buttons</td><td>Select track (LED = track color). Hold + Volume = track volume. Hold Mute + press = mute.</td></tr>
+<tr><td>8 Track buttons</td><td>Select track (LED = track color). <b>Hold</b> an unselected one to peek, release to return. Hold + Volume = track volume. Hold Mute + press = mute.</td></tr>
 <tr><td>Right cluster</td><td><kbd>Capture</kbd> <kbd>Sample</kbd> <kbd>Loop</kbd> <kbd>Mute</kbd> <kbd>Delete</kbd> <kbd>Copy</kbd> <kbd>Undo</kbd> <kbd>Shift</kbd></td></tr>
 <tr><td>16 Steps</td><td>The step sequencer row. With <kbd>Shift</kbd>, a function row (see <a href="#shift">reference</a>).</td></tr>
 <tr><td><kbd>◀</kbd><kbd>▶</kbd></td><td>Move between bars (and grid pages). With steps held: nudge notes.</td></tr>
@@ -145,7 +145,8 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 <li><b>Turn the wheel</b> = loop length in bars.</li>
 <li><b>Hold a bar</b> + wheel/Volume/±/arrows = bulk-edit every note in it; + a pad = fill the bar with that note.</li>
 <li><kbd>Delete</kbd> + bar step = clear the bar's notes. <kbd>Copy</kbd> + bar = copy it (press a destination bar to paste — pasting past the end extends the loop).</li>
-<li><span class="combo"><kbd>Shift</kbd>+<kbd>Step 15</kbd></span> = Double Loop (content included).</li></ul></section>
+<li><span class="combo"><kbd>Shift</kbd>+<kbd>Step 15</kbd></span> = Double Loop (notes <em>and automation</em> included).</li></ul>
+<div class="tip"><b>Shrinking never deletes.</b> Notes past the new end go silent and come right back when you lengthen the loop again. A bare <kbd>Delete</kbd> press deletes the whole clip; <kbd>Delete</kbd>+step clears a bar.</div></section>
 
 <section id="copy"><h2>Copy &amp; Paste</h2>
 <table><tr><th>Gesture</th><th>Result</th></tr>
@@ -159,7 +160,7 @@ footer{color:#55545e;font-size:12px;text-align:center;padding:30px}
 
 <section id="grid"><h2>Step Grid &amp; Workflow</h2>
 <p><span class="combo"><kbd>Shift</kbd>+<kbd>Step 3</kbd></span> opens Workflow: <b>Quantize %</b> (default 50), <b>Step Grid</b>, <b>Count-In</b>, <b>Autoload</b>. Wheel-press moves rows; turn to set.</p>
-<p>Step Grid: <b>1/8 · 1/16 · 1/16T · 1/32</b>. Finer grids page within the bar (<kbd>◀</kbd>/<kbd>▶</kbd> show "BAR n PAGE m"). Triplet grids deactivate every 4th button to keep the beat honest. Recording quantize pulls to the active grid.</p></section>
+<p>Step Grid: <b>1/8 · 1/8T · 1/16 · 1/16T · 1/32 · 1/32T · 1/64</b>. Finer grids page within the bar (<kbd>◀</kbd>/<kbd>▶</kbd> show "BAR n PAGE m"). Triplet grids deactivate every 4th button to keep the beat honest. Recording quantize pulls to the active grid.</p></section>
 
 <section id="sounds"><h2>Sounds &amp; AU Plugins</h2>
 <p><b>Wheel press</b> on a track opens the browser: drum kits or internal synth presets, followed by every installed <b>AUv3 instrument</b>. With Autoload on, sounds preview as you scroll. Press the wheel to load.</p>
